@@ -1,0 +1,9 @@
+document.getElementById('contact-form').addEventListener('submit', async event => {event.preventDefault();const f=event.currentTarget;const text=`Till Lotta Björkdahl\n\n${f.elements.message.value.trim()}\n\n${f.elements.name.value.trim()}\n${f.elements.email.value.trim()}`;const s=document.getElementById('form-status');try{await navigator.clipboard.writeText(text);s.textContent='Meddelandet är kopierat. Inget har skickats.';}catch{s.textContent='Kopieringen fungerade inte. Markera och kopiera texten i fälten manuellt.';}});
+const players=[...document.querySelectorAll('audio')];
+players.forEach(player=>player.addEventListener('play',()=>players.forEach(other=>{if(other!==player)other.pause();})));
+const artDialog=document.getElementById('art-dialog');
+document.querySelectorAll('.art-open').forEach(button=>button.addEventListener('click',()=>{const image=button.querySelector('img');const full=document.getElementById('art-full');full.src=image.src;full.alt=image.alt;document.getElementById('art-caption').textContent=image.alt+' · Illustration: Birgitta Gårdensjö';artDialog.showModal();document.body.classList.add('dialog-open');}));
+artDialog.querySelector('.dialog-close').addEventListener('click',()=>artDialog.close());
+artDialog.addEventListener('close',()=>document.body.classList.remove('dialog-open'));
+artDialog.addEventListener('click',event=>{if(event.target===artDialog){const bounds=artDialog.getBoundingClientRect();if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)artDialog.close();}});
+document.querySelectorAll('.art-open').forEach(button=>button.addEventListener('click',()=>{const name=button.querySelector('img').getAttribute('src').split('/').pop().replace('.jpg','');document.getElementById('art-zoom-frame').dataset.art=name;}));
