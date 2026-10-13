@@ -15,3 +15,10 @@
 .art-open img,.art-frame #art-full{position:absolute;top:0;left:var(--image-left);width:var(--image-width);max-width:none;height:auto;max-height:none;margin:0;transform:none}
 .art-open:hover img{transform:none}
 #art-zoom-frame{width:min(80vw,70vh);margin:auto}
+
+/* Vector arrows stay consistent across mobile fonts and emoji renderers. */
+.link-arrow{display:inline-block;width:1.1em;height:1.1em;flex-shrink:0;vertical-align:-.15em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;white-space:nowrap}
+.text-link,.audio-link,footer>a:last-child{display:inline-flex;align-items:center;gap:7px}
+.press-list b,.art-grid figcaption b{display:flex;align-items:center;justify-content:center}
+header>.button{flex-shrink:0}
